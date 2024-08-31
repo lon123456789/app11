@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farcaster Frame Example</title>
+
+    <!-- Frame Configuration -->
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="https://i.imgur.com/5LMzFZk.jpeg" />
+    <meta property="og:image" content="https://i.imgur.com/5LMzFZk.jpeg" />
+
+    <!-- Button Configuration -->
+    <meta property="fc:frame:button:1" content="Reveal Truth" />
+    <meta property="fc:frame:button:1:action" content="post" />
+    <meta property="fc:frame:post_url" content="https://rural-laced-beak.glitch.me/reveal-truth" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello Warpcast</h1>
+    <p>This is a basic frame example to be embedded in Warpcast.</p>
+    <img src="https://i.imgur.com/5LMzFZk.jpeg" alt="Initial Image">
+    <div id="message">What do you think you are?</div>
+
+    <script>
+        // This script handles the button click and changes the content dynamically
+        function revealTruth() {
+            const newImage = "https://i.imgur.com/arTAH6r.jpeg";
+            const newMessage = "What you really are";
+
+            document.querySelector("img").src = newImage;
+            document.getElementById("message").innerText = newMessage;
+        }
+
+        // Attach revealTruth function to the button (only in the browser)
+        if (typeof document !== 'undefined') {
+            document.querySelector('meta[property="fc:frame:button:1"]').onclick = revealTruth;
+        }
+    </script>
+</body>
+</html>
